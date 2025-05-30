@@ -6,6 +6,8 @@ using UnityEngine;
 public class CrossBowShoot : MonoBehaviour
 {
     public Arrow arrowPrefab;
+    public float shootInterval = 0.75f;
+    private float shootTimer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,15 +19,16 @@ public class CrossBowShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (Input.GetMouseButtonDown(0))
+        shootTimer -= Time.deltaTime;
+       if (Input.GetMouseButton(0))
         {
-
-            Arrow new_arrow = Instantiate (arrowPrefab);
-            new_arrow.transform.position = transform.position;
-            new_arrow.transform.rotation = transform.rotation;
-
-            new_arrow.direction = transform.forward;
-            new_arrow.Shoot();
+          if (shootTimer <= 0)
+            {
+                Instantiate(arrowPrefab, transform.position, transform.rotation);
+                shootTimer = shootInterval;
+            }
+           
+           
         }
     }
 }

@@ -5,12 +5,12 @@ using UnityEngine;
 public class Ballesta : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    public Vector2 aimDirection;
     public float shootInterval = 0.75f;
     private float shootTimer = 0;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -33,15 +33,24 @@ public class Ballesta : MonoBehaviour
 
             Vector2 defaultDirection = Vector2.up;
 
-           float angle = Vector2.SignedAngle(defaultDirection, wantedDirection);
+            float angle = Vector2.SignedAngle(defaultDirection, wantedDirection);
 
             Vector3 newEuler = new Vector3(0, 0, angle);
 
             transform.localEulerAngles = newEuler;
 
+            aimDirection = defaultDirection;
         }
 
 
 
     }
+
+    public Vector2 GetDirection() 
+    {
+        return aimDirection;
+    }
+     
+      
+     
 }
