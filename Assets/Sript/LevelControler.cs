@@ -22,9 +22,9 @@ public class LevelControler : MonoBehaviour
         {
             Enemy[] enemies = FindObjectsOfType<Enemy>();
 
-            if (enemies.Lenght <= 0)
+            if (enemies.Length <= 0)
             {
-                Victory();
+                //Victory();
             
             }
         }

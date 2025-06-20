@@ -24,13 +24,13 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnCounter += sapwnAddPerLevel * LevelController.level;
+        spawnCounter += spawnAddPerLevel * LevelControler.level;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(LevelController.finished == false)
+        if(LevelControler.finished == false)
         {
             if (spawnTimer > 0)
             {
@@ -48,7 +48,7 @@ public class Spawner : MonoBehaviour
 
     public void Spawn()
     {
-        SpawnCounter--;
+        spawnCounter--;
 
         spawnTimer = Random.Range(spawnIntervalMin, spawnIntervalMax);
 
